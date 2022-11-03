@@ -8,7 +8,7 @@ export default [
     input: "src/index.ts",
     output: {
       name: "pfm-components-library",
-      file: 'dist/pfm-components-library.umd.js',
+      file: 'dist/umd/pfm-components-library.min.js',
       format: "umd",
     },
     plugins: [
@@ -27,8 +27,8 @@ export default [
   {
     input: "src/index.ts",
     output: [
-      { file: 'dist/pfm-components-library.cjs.js', format: "cjs" },
-      { file: 'dist/pfm-components-library.esm.js', format: "es" },
+      { file: 'dist/cjs/index.js', format: "cjs" },
+      { file: 'dist/esm/index.js', format: "esm" },
     ],
     plugins: [typescript({ tsconfig: "./tsconfig.json" })],
   },
