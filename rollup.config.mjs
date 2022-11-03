@@ -1,14 +1,17 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
+import { readFileSync } from 'node:fs';
+
+const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url)));
 
 export default [
   // browser-friendly UMD build
   {
     input: "src/index.ts",
     output: {
-      name: "pfm-components-library",
-      file: 'dist/umd/pfm-components-library.min.js',
+      name: "pfmComponentsLibrary",
+      file: pkg.browser,
       format: "umd",
     },
     plugins: [
@@ -27,8 +30,8 @@ export default [
   {
     input: "src/index.ts",
     output: [
-      { file: 'dist/cjs/index.js', format: "cjs" },
-      { file: 'dist/esm/index.js', format: "esm" },
+      { file: pkg.main, format: "cjs" },
+      { file: pkg.module, format: "es" },
     ],
     plugins: [typescript({ tsconfig: "./tsconfig.json" })],
   },

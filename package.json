@@ -1,18 +1,21 @@
 {
   "name": "pfm-components-library",
-  "version": "1.0.1",
+  "version": "1.3.0",
   "description": "",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "browser": "dist/umd/pfm-components-library.min.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/pfm-components-library.umd.min.js",
   "files": [
     "dist"
   ],
+  "typings": "dist/index.d.ts",
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
     "build:types": "tsc -p ./tsconfig.json --outDir build --declaration true && api-extractor run",
     "docs": "typedoc src --out docs",
+    "delete-build": "rmdir /s /q dist && rmdir /s /q build",
+    "publish-pkg": "npm run delete-build && npm run build && npm run build:types && npm publish --access public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

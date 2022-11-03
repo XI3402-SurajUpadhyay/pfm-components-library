@@ -1,3 +1,3 @@
-export const sayHi = () => {
-    console.log("Hi");
+export const sayHi = (config) => {
+    console.log("Hi" + config.name);
 };

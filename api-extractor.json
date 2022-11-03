@@ -12,7 +12,7 @@
     },
     "dtsRollup": {
       "enabled": true,
-      "untrimmedFilePath": "<projectFolder>/dist/esm/types/index.d.ts"
+      "untrimmedFilePath": "<projectFolder>/dist/index.d.ts"
     },
     "apiReport": {
       "enabled": false
